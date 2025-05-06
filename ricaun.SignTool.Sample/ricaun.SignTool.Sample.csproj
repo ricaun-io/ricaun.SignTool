@@ -28,5 +28,10 @@
     <SignToolImportance>High</SignToolImportance>
     <!--<SignToolCommandImportance>High</SignToolCommandImportance>-->
   </PropertyGroup>
-
+  
+  <PropertyGroup Condition="!$(Configuration.Contains('Debug'))">
+    <SignToolFile>..\ricaun.SignTool.Sample\signfile.pfx</SignToolFile>
+    <SignToolPassword>signfile</SignToolPassword>
+  </PropertyGroup>
+  
 </Project>
