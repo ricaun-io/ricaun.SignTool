@@ -5,7 +5,7 @@
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
 
-`ricaun.SignTool` is a tool to sign assemblies after build using a file certificate. Uses the [App Certification Kit](https://learn.microsoft.com/en-us/windows/uwp/debug-test-perf/windows-app-certification-kit) as tools with the `signtool.exe` to sign the assemblies.
+`ricaun.SignTool` is a tool to sign assembly file after build using a file certificate. This package use the [App Certification Kit](https://learn.microsoft.com/en-us/windows/uwp/debug-test-perf/windows-app-certification-kit) as tools with the `signtool.exe` to sign the files.
 
 ## Installation
 
