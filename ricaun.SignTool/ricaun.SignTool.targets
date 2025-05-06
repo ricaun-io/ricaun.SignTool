@@ -17,6 +17,7 @@
  <Target Name="SignToolTarget" AfterTargets="Build" Condition="$(SignToolEnabled)">
 
    <Error Condition="!Exists('$(SignTool)')" Text="Unable to locate '$(SignTool)'" />
+   <Error Condition="!Exists('$(SignToolFile)')" Text="Unable to locate the 'SignToolFile' property '$(SignToolFile)'. Set the environment variable `SIGN_FILE` to the path of the certificate file and `SIGN_PASSWORD` for the certificate password." />
 
    <PropertyGroup>
      <!-- When TargetFrameworks is used Target trigger without TargetName -->
