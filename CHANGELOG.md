@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - SignTool target task to sign assemblies after build using a file certificate.
 ### Updated
 - Update `SignToolTarget` to use `AfterTargets` equal `CoreBuild`.
+- Update `SignToolImportance` default to `High`.
 ### Sample
 - Add `signfile.pfx` file to sign the assembly, copy from [ricaun.Security.WinTrust](https://github.com/ricaun-io/ricaun.Security.WinTrust/)
 ### Tests

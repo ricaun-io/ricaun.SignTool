@@ -2,7 +2,7 @@
 
  <PropertyGroup>
    <SignToolEnabled Condition="'$(SignToolEnabled)' == ''">true</SignToolEnabled>
-   <SignToolImportance Condition="'$(SignToolImportance)' == ''">Low</SignToolImportance>
+   <SignToolImportance Condition="'$(SignToolImportance)' == ''">High</SignToolImportance>
    <SignToolCommandImportance Condition="'$(SignToolCommandImportance)' == ''">Low</SignToolCommandImportance>
    <SignTool Condition="'$(SignTool)' == ''">$(MSBuildThisFileDirectory)..\tools\App Certification Kit\SignTool.exe</SignTool>
  </PropertyGroup>
@@ -37,7 +37,7 @@
          StandardOutputImportance="$(SignToolCommandImportance)"
          Condition="$(SignToolAssemblyFileExist)" />
 
-   <Message Text="SignTool: Successfully signed $(TargetName)$(TargetExt) ($(TargetFramework))" Importance="$(SignToolImportance)" Condition="$(SignToolAssemblyFileExist)" />
+   <Message Text="SignTool: Successfully signed -> $(TargetName)$(TargetExt) ($(TargetFramework))" Importance="$(SignToolImportance)" Condition="$(SignToolAssemblyFileExist)" />
 
  </Target>
 

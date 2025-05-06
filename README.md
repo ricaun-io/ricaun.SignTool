@@ -26,7 +26,7 @@ By default, the output file is sign using the environment variable `SIGN_FILE` a
 Property Name | Default Value | Description
 -------------|--------|-------------
 `SignToolEnabled`| `true` | Enable / Disable SignTool target task.
-`SignToolImportance` | `Low` | Log importance to show in the console. (`Low` or `High`)
+`SignToolImportance` | `High` | Log importance to show in the console. (`Low` or `High`)
 `SignToolCommandImportance` | `Low` | Log importance from the `SignTool.exe` to show in the console. (`Low` or `High`)
 `SignToolFile`| `$(SIGN_FILE)` | Path to the certificate file (`.pfx`).
 `SignToolPassword`| `$(SIGN_PASSWORD)` | Password to the certificate file (`.pfx`).
