@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net47;net8.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <!-- Net Core -->
+  <PropertyGroup Condition="!$(TargetFramework.StartsWith('net4'))">
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ricaun.SignTool" Version="*-*" Condition="!$(Configuration.Contains('Debug'))" />
+  </ItemGroup>
+
+  <!-- Import SignTool props/targets files in Debug -->
+  <Import Project="..\ricaun.SignTool\ricaun.SignTool.props" Condition="$(Configuration.Contains('Debug'))" />
+  <Import Project="..\ricaun.SignTool\ricaun.SignTool.targets" Condition="$(Configuration.Contains('Debug'))" />
+  
+  <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
+    <SignTool>..\ricaun.SignTool\App Certification Kit\SignTool.exe</SignTool>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--<SignToolEnabled>true</SignToolEnabled>-->
+    <SignToolImportance>High</SignToolImportance>
+    <!--<SignToolCommandImportance>High</SignToolCommandImportance>-->
+  </PropertyGroup>
+
+</Project>

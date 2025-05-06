@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net4</TargetFramework>
+    <OutputType>Library</OutputType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseWPF>true</UseWPF>
+    <LangVersion>latest</LangVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <Configurations>Debug; Release;</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>ricaun.SignTool</PackageId>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Company>ricaun</Company>
+    <Authors>Luiz Henrique Cassettari</Authors>
+    <Description>Targets to SignTool project.</Description>
+    <CopyrightYears>$([System.DateTime]::Now.ToString('yyyy'))</CopyrightYears>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Product>$(PackageId)</Product>
+    <Copyright>Copyright © $(CopyrightYears) $(Company)</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GitHubRepositoryOwner>ricaun-io</GitHubRepositoryOwner>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/$(GitHubRepositoryOwner)/$(PackageId)</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/$(GitHubRepositoryOwner)/$(PackageId)</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIconUrl />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+      <Visible>false</Visible>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <!-- Package Template -->
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);NU5128;NU5111</NoWarn>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoBuild>true</NoBuild>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <SuppressDependenciesWhenPacking>false</SuppressDependenciesWhenPacking>
+    <DevelopmentDependency>true</DevelopmentDependency>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildProjectName).props" PackagePath="build" Pack="true" />
+    <None Include="$(MSBuildProjectName).targets" PackagePath="build" Pack="true" />
+    <None Include="App Certification Kit\**\*" PackagePath="tools\App Certification Kit" Pack="true" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+  <Target Name="CopyPackFiles" AfterTargets="Pack" Condition="!$(Configuration.Contains('Debug'))">
+    <PropertyGroup>
+      <CopyDir>..\references\</CopyDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <CopyItem Include="$(OutputPath)\$(PackageId).$(PackageVersion).nupkg" />
+      <DeleteItem Include="$(CopyDir)\$(PackageId)*.nupkg" />
+    </ItemGroup>
+    <Delete Files="@(DeleteItem)" />
+    <Copy SourceFiles="@(CopyItem)" DestinationFolder="$(CopyDir)" />
+  </Target>
+
+</Project>

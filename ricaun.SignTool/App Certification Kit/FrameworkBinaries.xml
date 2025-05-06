@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<frameworkbinaries version="1">
+    <binary ModuleName="d3d12core.dll" />
+    <binary ModuleName="intel_gfx_api-x64.dll" />
+    <binary ModuleName="intel_gfx_api-x86.dll" />
+    <binary ModuleName="optane.dll" />
+    <binary ModuleName="sgx_uae_service.dll" />
+    <binary ModuleName="sgx_urts.dll" />
+</frameworkbinaries>
