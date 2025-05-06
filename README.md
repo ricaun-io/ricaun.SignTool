@@ -42,7 +42,6 @@ Property Name | Default Value | Description
   <SignToolCommandImportance>Low</SignToolCommandImportance>
   <SignToolAfterTargets>CoreBuild</SignToolAfterTargets>
   <SignToolBeforeTargets></SignToolBeforeTargets>
-
   <SignToolFile>$(SIGN_FILE)</SignToolFile>
   <SignToolPassword>$(SIGN_PASSWORD)</SignToolPassword>
   <SignToolTimestampUrl>http://timestamp.digicert.com</SignToolTimestampUrl>
