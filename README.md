@@ -28,6 +28,8 @@ Property Name | Default Value | Description
 `SignToolEnabled`| `true` | Enable / Disable SignTool target task.
 `SignToolImportance` | `High` | Log importance to show in the console. (`Low` or `High`)
 `SignToolCommandImportance` | `Low` | Log importance from the `SignTool.exe` to show in the console. (`Low` or `High`)
+`SignToolAfterTargets`| `CoreBuild` | Target to run the SignTool task. (`CoreBuild`, `Build`, etc.)
+`SignToolBeforeTargets`| `` | Target to run the SignTool task. (`CoreBuild`, `Build`, etc.)
 `SignToolFile`| `$(SIGN_FILE)` | Path to the certificate file (`.pfx`).
 `SignToolPassword`| `$(SIGN_PASSWORD)` | Password to the certificate file (`.pfx`).
 `SignToolTimestampUrl`| `http://timestamp.digicert.com` | URL to the timestamp server.
@@ -36,8 +38,11 @@ Property Name | Default Value | Description
 ```xml
 <PropertyGroup>
   <SignToolEnabled>true</SignToolEnabled>
-  <SignToolImportance>Low</SignToolImportance>
+  <SignToolImportance>High</SignToolImportance>
   <SignToolCommandImportance>Low</SignToolCommandImportance>
+  <SignToolAfterTargets>CoreBuild</SignToolAfterTargets>
+  <SignToolBeforeTargets></SignToolBeforeTargets>
+
   <SignToolFile>$(SIGN_FILE)</SignToolFile>
   <SignToolPassword>$(SIGN_PASSWORD)</SignToolPassword>
   <SignToolTimestampUrl>http://timestamp.digicert.com</SignToolTimestampUrl>

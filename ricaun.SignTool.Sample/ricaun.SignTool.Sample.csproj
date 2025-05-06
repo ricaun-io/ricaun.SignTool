@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net47;net8.0</TargetFrameworks>
@@ -15,6 +15,15 @@
     <PackageReference Include="ricaun.SignTool" Version="*-*" Condition="!$(Configuration.Contains('Debug'))" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <!--<SignToolEnabled>true</SignToolEnabled>-->
+    <!--<SignToolImportance>High</SignToolImportance>-->
+    <!--<SignToolCommandImportance>High</SignToolCommandImportance>-->
+
+    <SignToolAfterTargets></SignToolAfterTargets>
+    <SignToolBeforeTargets></SignToolBeforeTargets>
+  </PropertyGroup>
+
   <!-- Import SignTool props/targets files in Debug -->
   <Import Project="..\ricaun.SignTool\ricaun.SignTool.props" Condition="$(Configuration.Contains('Debug'))" />
   <Import Project="..\ricaun.SignTool\ricaun.SignTool.targets" Condition="$(Configuration.Contains('Debug'))" />
@@ -22,16 +31,22 @@
   <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
     <SignTool>..\ricaun.SignTool\App Certification Kit\SignTool.exe</SignTool>
   </PropertyGroup>
-
-  <PropertyGroup>
-    <!--<SignToolEnabled>true</SignToolEnabled>-->
-    <!--<SignToolImportance>High</SignToolImportance>-->
-    <!--<SignToolCommandImportance>High</SignToolCommandImportance>-->
-  </PropertyGroup>
   
   <PropertyGroup Condition="!$(Configuration.Contains('Debug'))">
     <SignToolFile>..\ricaun.SignTool.Sample\signfile.pfx</SignToolFile>
     <SignToolPassword>signfile</SignToolPassword>
   </PropertyGroup>
+
+  <Target Name="CoreBuildSample" AfterTargets="CoreBuild">
+    <Message Text="CoreBuild $(TargetName)" Importance="$(SignToolImportance)"/>
+  </Target>
+
+  <Target Name="CoreBuildSample2" AfterTargets="CoreBuild">
+    <Message Text="CoreBuild2 $(TargetName)" Importance="$(SignToolImportance)"/>
+  </Target>
+
+  <Target Name="BuildSample" AfterTargets="Build">
+    <Message Text="Build $(TargetName)" Importance="$(SignToolImportance)"/>
+  </Target>
   
 </Project>
