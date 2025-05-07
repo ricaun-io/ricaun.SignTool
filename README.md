@@ -4,6 +4,7 @@
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
+[![Release](https://img.shields.io/nuget/v/ricaun.SignTool?logo=nuget&label=release&color=blue)](https://www.nuget.org/packages/ricaun.SignTool)
 
 `ricaun.SignTool` is a tool to sign assembly file after build using a file certificate. This package use the [App Certification Kit](https://learn.microsoft.com/en-us/windows/uwp/debug-test-perf/windows-app-certification-kit) as tools with the `signtool.exe` to sign the files.
 
