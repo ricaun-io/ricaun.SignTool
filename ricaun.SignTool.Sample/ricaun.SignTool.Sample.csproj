@@ -37,7 +37,7 @@
     <SignToolPassword>signfile</SignToolPassword>
   </PropertyGroup>
 
-  <Target Name="CoreBuildSample" AfterTargets="CoreBuild">
+  <!--<Target Name="CoreBuildSample" AfterTargets="CoreBuild">
     <Message Text="CoreBuild $(TargetName)" Importance="$(SignToolImportance)"/>
   </Target>
 
@@ -47,6 +47,6 @@
 
   <Target Name="BuildSample" AfterTargets="Build">
     <Message Text="Build $(TargetName)" Importance="$(SignToolImportance)"/>
-  </Target>
+  </Target>-->
   
 </Project>

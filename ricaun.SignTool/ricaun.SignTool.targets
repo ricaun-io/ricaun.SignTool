@@ -28,9 +28,11 @@
     </PropertyGroup>
 
     <PropertyGroup>
-      <SignToolAssemblyFile>$(OutputPath)$(TargetName)$(TargetExt)</SignToolAssemblyFile>
+      <SignToolAssemblyFileName>$(TargetName)$(TargetExt)</SignToolAssemblyFileName>
+      <SignToolAssemblyFileName Condition="$(OutputType) == exe" >$(TargetName).exe</SignToolAssemblyFileName>
+      <SignToolAssemblyFile>$(OutputPath)$(SignToolAssemblyFileName)</SignToolAssemblyFile>
       <SignToolFullCommand>&quot;$(SignTool)&quot; sign /f &quot;$(SignToolFile)&quot; /p &quot;$(SignToolPassword)&quot; /t &quot;$(SignToolTimestampUrl)&quot; /fd &quot;$(SignToolTimestampDigest)&quot; &quot;$(SignToolAssemblyFile)&quot;</SignToolFullCommand>
-    </PropertyGroup>
+  </PropertyGroup>
 
     <Exec Command="$(SignToolFullCommand)"
           WorkingDirectory="$(MSBuildProjectDirectory)"
@@ -39,7 +41,7 @@
           StandardOutputImportance="$(SignToolCommandImportance)"
           Condition="$(SignToolAssemblyFileExist)" />
 
-    <Message Text="SignTool: Successfully signed -> $(TargetName)$(TargetExt) ($(TargetFramework))" Importance="$(SignToolImportance)" Condition="$(SignToolAssemblyFileExist)" />
+    <Message Text="SignTool: Successfully signed -> $(SignToolAssemblyFileName) ($(TargetFramework))" Importance="$(SignToolImportance)" Condition="$(SignToolAssemblyFileExist)" />
 
   </Target>
 

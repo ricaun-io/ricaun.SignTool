@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.0.0] / 2025-05-06
 ### Features
 - SignTool target task to sign assemblies after build using a file certificate.
+- Support project with `Exe` and `Library` output type.
 ### Updated
 - Update `SignToolTarget` to use `AfterTargets` equal `CoreBuild`.
 - Update `SignToolImportance` default to `High`.
