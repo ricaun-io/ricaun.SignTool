@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update `SignToolImportance` default to `High`.
 - Update `SignToolTarget` to use propriety `SignToolAfterTargets` in the `AfterTargets` with default `CoreBuild`.
 - Update `SignToolTarget` to use propriety `SignToolBeforeTargets` in the `BeforeTargets` with default ``.
+- Update `SignToolFile` not exist to warning message.
 ### Sample
 - Add `signfile.pfx` file to sign the assembly, copy from [ricaun.Security.WinTrust](https://github.com/ricaun-io/ricaun.Security.WinTrust/)
 ### Tests
