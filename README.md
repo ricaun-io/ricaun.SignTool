@@ -1,9 +1,9 @@
 ﻿# ricaun.SignTool
 
-[![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](../..)
+[![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](https://github.com/ricaun-io/ricaun.SignTool)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
+[![Build](https://github.com/ricaun-io/ricaun.SignTool/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/ricaun.SignTool/actions)
 [![Release](https://img.shields.io/nuget/v/ricaun.SignTool?logo=nuget&label=release&color=blue)](https://www.nuget.org/packages/ricaun.SignTool)
 
 `ricaun.SignTool` is a tool to sign assembly file after build using a file certificate. This package use the [App Certification Kit](https://learn.microsoft.com/en-us/windows/uwp/debug-test-perf/windows-app-certification-kit) as tools with the `signtool.exe` to sign the files.
@@ -52,7 +52,7 @@ Property Name | Default Value | Description
 
 ## Release
 
-* [Latest release](../../releases/latest)
+* [Latest release](https://github.com/ricaun-io/ricaun.SignTool/releases/latest)
 
 ## License
 
@@ -60,4 +60,4 @@ This project is [licensed](LICENSE) under the [MIT License](https://en.wikipedia
 
 ---
 
-Do you like this project? Please [star this project on GitHub](../../stargazers)!
+Do you like this project? Please [star this project on GitHub](https://github.com/ricaun-io/ricaun.SignTool/stargazers)!
